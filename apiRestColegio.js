@@ -16,6 +16,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
+
+
 app.get("/alumnos",
 
     function (req, res) {
@@ -793,5 +795,10 @@ function (req,res)
         }) 
     }
 });
+
+app.use(function(request, response, next){
+    respuesta = {codigo: 404, mensaje: "URL no encontrado"}
+    response.status(404).send(respuesta)
+})
 
 app.listen(3000)
